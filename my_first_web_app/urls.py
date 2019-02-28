@@ -25,6 +25,13 @@ def home_page(request):
     return HttpResponse(response)
 
 
+def portfolio(request):
+    # http://127.0.0.1:8000/
+    response = render(request, 'gallery.html')
+    return HttpResponse(response)
+
+
 urlpatterns = [
-    path('home/', home_page)
+    path('home/', home_page),
+    path('portfolio/', portfolio)
 ]
