@@ -40,7 +40,7 @@ def gallery(request):
         random_number = randint(0, 100)
         image_urls.append(("https://picsum.photos/400/600/?image={}".format(random_number)))
 
-    context = {'gallery_images': image_urls, "gallery_image": "https://vignette.wikia.nocookie.net/rickandmorty/images/9/92/Roy.png/revision/latest?cb=20160919070029"}
+    context = {'gallery_images': image_urls, }
     response = render(request, 'gallery.html', context)
     return HttpResponse(response)
 
