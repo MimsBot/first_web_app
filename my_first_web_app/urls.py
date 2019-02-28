@@ -15,15 +15,16 @@ Including another URLconf
 """
 
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.urls import path
 
 
 def home_page(request):
     # http://127.0.0.1:8000/
-    return HttpResponse('I am a homepage!')
+    response = render(request, 'index.html')
+    return HttpResponse(response)
 
 
 urlpatterns = [
-
     path('home/', home_page)
 ]
