@@ -34,7 +34,23 @@ def portfolio(request):
     return HttpResponse(response)
 
 
+def gallery(request):
+    image_urls = []
+    for i in range(5):
+        random_number = randint(0, 100)
+        image_urls.append(("https://picsum.photos/400/600/?image={}".format(random_number)))
+
+    context = {'gallery_images': image_urls, "gallery_image": "https://vignette.wikia.nocookie.net/rickandmorty/images/9/92/Roy.png/revision/latest?cb=20160919070029"}
+    response = render(request, 'gallery.html', context)
+    return HttpResponse(response)
+
+def base_route(request):
+    return HttpResponse('<h1>Hi</h1><p>this is the base route page</p>')
+
+
 urlpatterns = [
     path('home/', home_page),
-    path('portfolio/', portfolio)
+    path('portfolio/', portfolio),
+    path('gallery', gallery),
+    path('', base_route)
 ]
